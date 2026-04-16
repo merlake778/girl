@@ -16,9 +16,7 @@ body {
 
 /* Контейнер */
 .container {
-    position: relative;
-    top: 50%;
-    transform: translateY(-50%);
+    margin-top: 15vh;
 }
 
 /* Фото */
@@ -27,9 +25,10 @@ img {
     border-radius: 20px;
     box-shadow: 0 10px 30px rgba(0,0,0,0.3);
     animation: float 3s ease-in-out infinite;
+    margin-bottom: 15px;
 }
 
-/* Плавное "плавание" */
+/* Плавное движение */
 @keyframes float {
     0% { transform: translateY(0px); }
     50% { transform: translateY(-15px); }
@@ -38,8 +37,8 @@ img {
 
 /* Заголовок */
 h1 {
-    margin-top: 20px;
-    font-size: 32px;
+    margin-top: 10px;
+    font-size: 28px;
 }
 
 /* Кнопки */
@@ -55,35 +54,27 @@ button {
 
 #yes {
     background: #28a745;
-    left: 40%;
-    top: 65%;
+    left: 35%;
+    top: 70%;
 }
 
 #no {
     background: #dc3545;
     left: 55%;
-    top: 65%;
+    top: 70%;
 }
 
 /* Сообщение */
 #message {
-    margin-top: 40px;
-    font-size: 26px;
+    margin-top: 30px;
+    font-size: 24px;
     min-height: 40px;
-    animation: fadeIn 1s ease;
-}
-
-/* Появление текста */
-@keyframes fadeIn {
-    from {opacity: 0;}
-    to {opacity: 1;}
 }
 
 /* Сердечки */
 .heart {
     position: absolute;
     color: red;
-    font-size: 20px;
     animation: fall linear infinite;
 }
 
@@ -116,7 +107,7 @@ const noBtn = document.getElementById('no');
 const yesBtn = document.getElementById('yes');
 const message = document.getElementById('message');
 
-// Убегающая кнопка с плавностью
+// Убегающая кнопка
 noBtn.addEventListener('mouseover', () => {
     const x = Math.random() * (window.innerWidth - 100);
     const y = Math.random() * (window.innerHeight - 100);
@@ -141,7 +132,7 @@ setTimeout(() => {
     yesBtn.click();
 }, 4000);
 
-// Генерация падающих сердечек
+// Сердечки
 function createHeart() {
     const heart = document.createElement('div');
     heart.classList.add('heart');
@@ -158,10 +149,10 @@ function createHeart() {
     }, 5000);
 }
 
-// Постоянный дождь сердечек
+// Дождь сердечек
 setInterval(createHeart, 300);
 
-// Взрыв сердечек при "Да"
+// Взрыв сердечек
 function explodeHearts() {
     for (let i = 0; i < 30; i++) {
         createHeart();
